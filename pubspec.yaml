@@ -76,6 +76,7 @@ flutter:
     - lib/IMG/Background/background_profil.jpg
     - lib/IMG/Background/Base_Rocket.png
     - lib/IMG/Background/base_secrete.png
+    - lib/IMG/Background/pokedexBackground.png
 
   #Icons
     - lib/IMG/Icons/iconGiovani.png
