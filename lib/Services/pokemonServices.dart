@@ -15,7 +15,6 @@ class PokemonServices {
   PlayerServices _playerServices = PlayerServices();
 
   Future<PokemonModel> catchPokemon(TrapModel trapModel, String city) async {
-    print(trapModel.name);
 
     PlayerModel playerModel = await _playerServices.getPlayer;
 
@@ -59,4 +58,6 @@ class PokemonServices {
  
     return url;
   }
+
+
 }

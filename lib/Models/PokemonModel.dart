@@ -8,10 +8,13 @@ class PokemonModel {
   final int? idEvo;
   final String? steelEvo;
   final int price;
+  final String url;
   final List<dynamic>? cities;
 
   PokemonModel(this.id, this.name, this.scarcity, this.type, this.level,
-      this.levelEvo, this.idEvo, this.steelEvo, this.price, this.cities);
+      this.levelEvo, this.idEvo, this.steelEvo, this.price,this.url, this.cities);
+
+  
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -23,6 +26,7 @@ class PokemonModel {
         'idEvo': idEvo,
         'steelEvo': steelEvo,
         'price': price,
+        'url' : url,
         'cities': cities
       };
 
@@ -37,6 +41,7 @@ class PokemonModel {
       json['idEvo'],
       json['steelEvo'],
       json['price'],
+      json['url'],
       json['cities'],
     );
   }

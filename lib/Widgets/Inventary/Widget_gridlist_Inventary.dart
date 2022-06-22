@@ -34,7 +34,7 @@ class Widget_gridlist_Inventary extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final TrapModel trap = traps[index];
                         return ListTile(
-                          leading: Image.network(trap.url),
+                          leading: Container(width: 60, height: 60, child: Image.network(trap.url)),
                           title: Text(trap.name),
                           trailing: Text('x ${trap.qantity}'),
                         );
@@ -89,7 +89,7 @@ class Widget_gridlist_Inventary extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final EvolutionStoneModel stone = stones[index];
                         return ListTile(
-                          leading: Image.network(stone.url),
+                          leading: Container(width: 60, height: 60, child: Image.network(stone.url)),
                           title: Text(stone.name),
                           trailing: Text('x ${stone.qantity}'),
                         );

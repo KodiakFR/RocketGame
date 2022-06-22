@@ -18,16 +18,63 @@ class PokedexServices {
         int oldQuantity = (await documentReference.get()).get('qantity');
         int newQuantity = oldQuantity + 1;
 
-        PokedexModel pokedexModel = PokedexModel(pokemonModel.id,pokemonModel.name, newQuantity);
+        PokedexModel pokedexModel = PokedexModel(
+          pokemonModel.id,
+          pokemonModel.name,
+          pokemonModel.scarcity,
+          pokemonModel.type,
+          pokemonModel.level,
+          pokemonModel.levelEvo,
+          pokemonModel.idEvo,
+          pokemonModel.steelEvo,
+          pokemonModel.price,
+          pokemonModel.url,
+          pokemonModel.cities,
+          newQuantity,
+        );
 
         await documentReference.update(pokedexModel.toJson());
-      }else{
-        PokedexModel pokedexModel = PokedexModel(pokemonModel.id,pokemonModel.name, 1);
+      } else {
+        PokedexModel pokedexModel =
+            PokedexModel(pokemonModel.id,
+          pokemonModel.name,
+          pokemonModel.scarcity,
+          pokemonModel.type,
+          pokemonModel.level,
+          pokemonModel.levelEvo,
+          pokemonModel.idEvo,
+          pokemonModel.steelEvo,
+          pokemonModel.price,
+          pokemonModel.url,
+          pokemonModel.cities, 1);
 
         await documentReference.set(pokedexModel.toJson());
       }
     } catch (e) {
       print(e);
     }
+  }
+
+  Future<List<PokedexModel>> getPokedexByUid() async {
+    List<PokedexModel> pokedex = [];
+    try {
+      QuerySnapshot snapshot = await _firebaseFirestore
+          .collection('players/${_auth.currentUser!.uid}/pokedex')
+          .get();
+
+      final data = snapshot.docs
+          .map((doc) => (doc.data as Map<String, dynamic>))
+          .toList();
+
+      data.forEach((element) {
+        PokedexModel pokedexModel = PokedexModel.fromJson(element);
+        pokedex.add(pokedexModel);
+      });
+      print(pokedex.length);
+    } catch (e) {
+      print(e);
+    }
+
+    return pokedex;
   }
 }

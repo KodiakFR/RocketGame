@@ -2,37 +2,58 @@ import 'package:team_rocket_game/Models/PokemonModel.dart';
 
 class PokedexModel {
   //Attribute
-  late final int pokemonId;
-  late final String pokemonName;
-  late final int qantity;
+  int id;
+  String name;
+  final String? scarcity;
+  final String? type;
+  final int? level;
+  final int? levelEvo;
+  final int? idEvo;
+  final String? steelEvo;
+  final int? price;
+  final String? url;
+  final List<dynamic>? cities;
+  final int? qantity;
 
   //Constructor
-  PokedexModel(this.pokemonId, this.pokemonName, this.qantity);
+  PokedexModel(this.id, this.name, this.scarcity, this.type, this.level,
+      this.levelEvo, this.idEvo, this.steelEvo, this.price,this.url, this.cities, this.qantity);
+
+  PokedexModel.NoDiscovered(this.id, this.name,[this.scarcity, this.type, this.level, this.levelEvo, this.idEvo, this.steelEvo, this.price, this.url, this.cities, this.qantity]);
+    
 
   //setter - getter
-  get getPokemonId => this.pokemonId;
 
-  set setPokemonId(pokemonId) => this.pokemonId = pokemonId;
 
-  get getPokemonName => this.pokemonName;
-
-  set setPokemonName(pokemonName) => this.pokemonName = pokemonName;
-
-  get getQantity => this.qantity;
-
-  set setQuantity(qantity) => this.qantity = qantity;
-
-  Map<String, dynamic> toJson() => {
-        'pokemonId': pokemonId,
-        'pokemonName': pokemonName,
-        'qantity': qantity,
+   Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'scarcity': scarcity,
+        'type': type,
+        'level': level,
+        'levelEvo': levelEvo,
+        'idEvo': idEvo,
+        'steelEvo': steelEvo,
+        'price': price,
+        'url' : url,
+        'cities': cities,
+        'qantity':qantity
       };
 
   factory PokedexModel.fromJson(Map<String, dynamic> json) {
     return PokedexModel(
-      json['pokemonId'],
-      json['pokemonName'],
-      json['qantity'],
+      json['id'],
+      json['name'],
+      json['scarcity'],
+      json['type'],
+      json['level'],
+      json['levelEvo'],
+      json['idEvo'],
+      json['steelEvo'],
+      json['price'],
+      json['url'],
+      json['cities'],
+      json['qantity']
     );
   }
 }
