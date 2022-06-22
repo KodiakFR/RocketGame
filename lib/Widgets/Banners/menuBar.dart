@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:team_rocket_game/Screens/home.dart';
 import 'package:team_rocket_game/Screens/pokeshop.dart';
 
+import '../../Screens/sale.dart';
+
 
 class MenuBar extends StatelessWidget {
   const MenuBar({
@@ -96,7 +98,7 @@ class MenuBar extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                print('lien vers vente');
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> Sale()));
 
               },
               child: Image(
