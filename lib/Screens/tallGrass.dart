@@ -102,8 +102,11 @@ class _TallGrassState extends State<TallGrass> {
                                         MainAxisAlignment.spaceAround,
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      const TitleCustom(
-                                          title: 'Hautes Herbes'),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: const TitleCustom(
+                                            title: 'Hautes Herbes'),
+                                      ),
                                           SizedBox(height: 10,),
                                       CustomGridView(
                                         playerModel: _playerModel,
